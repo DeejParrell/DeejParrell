@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Book Your Barber Appointment | Jess & Deej</title>
+<link rel="stylesheet" href="style.css" />
+<style>
+body {
+  margin: 0;
+  font-family: Calibri Light;
+  text-align: center;
+  background-color: #ffffff;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.limit {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+}
+
+.barbers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.barbers a {
+  flex: 1 1 45%; /* Flex grow/shrink, 45% width */
+  max-width: 45%;
+}
+
+.barbers a img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.2s;
+}
+
+.barbers a img:hover {
+  transform: scale(1.05);
+}
+
+h1 {
+  font-size: 6vw;
+  margin: 20px 0 10px;
+}
+
+h2 {
+  font-size: 4vw;
+  margin: 10px 0;
+}
+
+section {
+  margin-top: 40px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.hours-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.hours-list p {
+  margin: 0;
+  font-size: 18px;
+}
+
+hr {
+  border: none;
+  border-top: 2px dotted #ccc;
+  margin: 40px 0;
+}
+
+.map-img {
+  margin-top: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Fade-in animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+
+<body>
+
+<img src="logo.svg" alt="Logo">
+
+<div class="limit">
+
+<h1>Book Now</h1>
+<img src="line1.jpg" alt="Line Divider">
+
+<h2>Just click a barber to book your next appointment.</h2>
+
+<div class="barbers fade-in">
+  <a href="https://spooky-barber-jess.square.site/" target="_blank">
+    <img src="Jess.jpg" alt="Jess the Barber">
+  </a>
+  <a href="https://deej-the-barber.square.site/" target="_blank">
+    <img src="Deej.jpg" alt="Deej the Barber">
+  </a>
+</div>
+
+<section class="hours fade-in">
+  <h1>Hours</h1>
+  <img src="line3.jpg" alt="Line Divider">
+  <div class="card">
+    <div class="hours-list">
+      <p>Sunday: CLOSED</p>
+      <p>Monday: CLOSED</p>
+      <p>Tuesday: 9:00am - 8:00pm</p>
+      <p>Wednesday: 9:00am - 6:00pm</p>
+      <p>Thursday: 9:00am - 8:00pm</p>
+      <p>Friday: 9:00am - 6:00pm</p>
+      <p>Saturday: 9:00am - 2:00pm</p>
+    </div>
+  </div>
+</section>
+
+<section class="location fade-in">
+  <h1>Location</h1>
+  <img src="line2.jpg" alt="Line Divider">
+  <div class="card">
+    <h2>The Majestic - 910 Topsail Road, <strong>Suite #9</strong></h2>
+    <a href="https://goo.gl/maps/your-location" target="_blank" class="map-img">
+      <img src="map.jpg" alt="Map to Location">
+    </a>
+  </div>
+</section>
+
+<section class="about fade-in">
+  <h1>About Us</h1>
+  <img src="line5.jpg" alt="Line Divider">
+  <div class="card">
+    <h2>
+     <P> Jess and Deej here; former barbers of local One of the Boys. We have taken our skill and excitement with us to a new location all our own.</P>
+    </h2>
+    
+  </div>
+</section>
+<img src="line4.jpg" alt="Line Divider">
+<hr />
+
+</div>
+
+<!-- Fade-in animation script -->
+<script>
+const faders = document.querySelectorAll('.fade-in');
+
+const appearOptions = {
+  threshold: 0.2,
+};
+
+const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) {
+      return;
+    } else {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, appearOptions);
+
+faders.forEach(fader => {
+  appearOnScroll.observe(fader);
+});
+</script>
+
+</body>
+</html>
