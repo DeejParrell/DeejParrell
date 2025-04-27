@@ -1,170 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Book Your Barber Appointment | Jess & Deej</title>
-<link rel="stylesheet" href="style.css" />
-<style>
-body {
-  margin: 0;
-  font-family: Calibri Light;
-  text-align: center;
-  background-color: #ffffff;
-}
+  <link rel="canonical" href="https://www.sc-barbershop.ca/" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Your Barber Appointment | Jess & Deej</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
 
-img {
-  max-width: 100%;
-  height: auto;
-}
+    body {
+      margin: 0;
+      font-family: 'Calibri', sans-serif;
+      text-align: center;
+      background-color: #eeeeee;
+    }
 
-.limit {
-  max-width: 600px;
-  margin: auto;
-  padding: 20px;
-}
+    header {
+      background: #eeeeee;
+      padding: 5px 0;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      width: 100%;
+    }
 
-.barbers {
+    .nav-links {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 10px; /* smaller gap so it fits */
+  font-size: 16px; /* slightly smaller text */
+  font-weight: bold;
+  padding: 10px;
+  flex-wrap: nowrap; /* force one line */
+  overflow-x: auto; /* allow scrolling if needed */
 }
 
-.barbers a {
-  flex: 1 1 45%; /* Flex grow/shrink, 45% width */
-  max-width: 45%;
-}
 
-.barbers a img {
-  width: 100%;
-  height: auto;
-  transition: transform 0.2s;
-}
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      transition: color 0.3s ease;
+    }
 
-.barbers a img:hover {
-  transform: scale(1.05);
-}
+    .nav-links a:hover {
+      color: #888;
+    }
 
-h1 {
-  font-size: 6vw;
-  margin: 20px 0 10px;
-}
+    img {
+      max-width: 100%;
+      height: auto;
+    }
 
-h2 {
-  font-size: 4vw;
-  margin: 10px 0;
-}
+    .limit {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+    }
 
-section {
-  margin-top: 40px;
-}
+    .barbers {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
 
-.card {
-  background: white;
-  padding: 20px;
-  margin: 20px 0;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
+    .barbers a {
+      flex: 1 1 45%;
+      max-width: 45%;
+    }
 
-.hours-list {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
-  margin-top: 20px;
-}
+    .barbers a img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.2s;
+    }
 
-.hours-list p {
-  margin: 0;
-  font-size: 18px;
-}
+    .barbers a img:hover {
+      transform: scale(1.05);
+    }
 
-hr {
-  border: none;
-  border-top: 2px dotted #ccc;
-  margin: 40px 0;
-}
+    h1 {
+      font-size: 6vw;
+      margin: 20px 0 10px;
+    }
 
-.map-img {
-  margin-top: 20px;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
+    h2 {
+      font-size: 4vw;
+      margin: 10px 0;
+    }
 
-/* Fade-in animations */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
+    h3 {
+      font-size: 5vw;
+      margin: 15px 0;
+    }
 
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-</style>
+    h4 {
+      font-size: 8vw;
+      margin: 25px 0;
+    }
+
+    p {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    section {
+      margin-top: 40px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 12px;
+      box-shadow: 0 8px 8px rgba(0, 0, 0, 0.7);
+    }
+
+    .hours-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    hr {
+      border: none;
+      border-top: 2px dotted #ccc;
+      margin: 40px 0;
+    }
+
+    /* Fade-in animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Form styling */
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    input, textarea {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      width: 100%;
+      max-width: 500px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #333;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    button:hover {
+      background-color: #555;
+    }
+  </style>
 </head>
 
 <body>
-
-<img src="logo.svg" alt="Logo">
+<header>
+  <img src="logo.png" alt="Logo">
+  <nav class="nav-links">
+    <a href="#book">Book</a>
+    <a href="#hours">Hours</a>
+    <a href="#location">Location</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
 <div class="limit">
 
-<h1>Book Now</h1>
-<img src="line1.jpg" alt="Line Divider">
-
-<h2>Just click a barber to book your next appointment.</h2>
-
-<div class="barbers fade-in">
-  <a href="https://spooky-barber-jess.square.site/" target="_blank">
-    <img src="Jess.jpg" alt="Jess the Barber">
-  </a>
-  <a href="https://deej-the-barber.square.site/" target="_blank">
-    <img src="Deej.jpg" alt="Deej the Barber">
-  </a>
-</div>
-
-<section class="hours fade-in">
-  <h1>Hours</h1>
-  <img src="line3.jpg" alt="Line Divider">
+<section id="book">
+  <h4>Book Now</h4>
+  <img src="line1.png" alt="Line Divider">
+  <p>Just click a barber to book your next appointment.</p>
   <div class="card">
-    <div class="hours-list">
-      <p>Sunday: CLOSED</p>
-      <p>Monday: CLOSED</p>
-      <p>Tuesday: 9:00am - 8:00pm</p>
-      <p>Wednesday: 9:00am - 6:00pm</p>
-      <p>Thursday: 9:00am - 8:00pm</p>
-      <p>Friday: 9:00am - 6:00pm</p>
-      <p>Saturday: 9:00am - 2:00pm</p>
+    <div class="barbers fade-in">
+      <a href="https://spooky-barber-jess.square.site/" target="_blank">
+        <img src="Jess.png" alt="Jess the Barber">
+      </a>
+      <a href="https://deej-the-barber.square.site/" target="_blank">
+        <img src="Deej.png" alt="Deej the Barber">
+      </a>
     </div>
   </div>
 </section>
 
-<section class="location fade-in">
-  <h1>Location</h1>
-  <img src="line2.jpg" alt="Line Divider">
+<section id="hours" class="hours fade-in">
+  <h4>Hours</h4>
+  <img src="line3.png" alt="Line Divider">
   <div class="card">
-    <h2>The Majestic - 910 Topsail Road, <strong>Suite #9</strong></h2>
-    <a href="https://goo.gl/maps/your-location" target="_blank" class="map-img">
-      <img src="map.jpg" alt="Map to Location">
-    </a>
+    <div class="hours-list">
+      <p>
+        Sunday: CLOSED<br>
+        Monday: CLOSED<br>
+        Tuesday: 9:00am - 8:00pm<br>
+        Wednesday: 9:00am - 6:00pm<br>
+        Thursday: 9:00am - 8:00pm<br>
+        Friday: 9:00am - 6:00pm<br>
+        Saturday: 9:00am - 2:00pm
+      </p>
+    </div>
   </div>
 </section>
 
-<section class="about fade-in">
-  <h1>About Us</h1>
-  <img src="line5.jpg" alt="Line Divider">
+<section id="location" class="location fade-in">
+  <h4>Location</h4>
+  <img src="line2.png" alt="Line Divider">
   <div class="card">
-    <h2>
-     <P> Jess and Deej here; former barbers of local One of the Boys. We have taken our skill and excitement with us to a new location all our own.</P>
-    </h2>
-    
+    <p>The Majestic - The Skeleton Crew - 910 Topsail Road, <strong>Suite #9</strong></p>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2694.227368211061!2d-52.79999198867113!3d47.524436271062164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4b0cbcba7d305487%3A0xdc07dc617a5d384d!2s910%20Topsail%20Rd%2C%20Mount%20Pearl%2C%20NL%20A1N%203E8!5e0!3m2!1sen!2sca!4v1745751199577!5m2!1sen!2sca" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
 </section>
-<img src="line4.jpg" alt="Line Divider">
+
+<section id="about" class="about fade-in">
+  <h4>About Us</h4>
+  <img src="line5.png" alt="Line Divider">
+  <div class="card">
+    <p>Jess and Deej here; former barbers of local One of the Boys. We have taken our skill and excitement with us to a new location all our own.</p>
+  </div>
+</section>
+
+<section id="contact" class="fade-in">
+  <h4>Leave a Comment</h4>
+  <img src="line4.png" alt="Line Divider">
+  <div class="card">
+    <form action="https://formspree.io/f/xwpopaor" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</section>
+
 <hr />
 
 </div>
